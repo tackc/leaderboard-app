@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="container mt-4">
       <InputForm updateLeaderboardArray={updateLeaderboardArray} />
-      <OutputLeaderboard />
+      <OutputLeaderboard leaderboard={leaderboard} />
     </div>
   );
 }
