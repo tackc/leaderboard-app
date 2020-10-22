@@ -4,7 +4,15 @@ import { Row, Col, Form, FormGroup, Label, Input, Button } from "reactstrap";
 export const InputForm = () => {
   const initialInputState = {player: "", score: ""}
   const [eachEntry, setEachEntry] = useState(initialInputState)
-  
+  const { player, score } = eachEntry;
+
+  const handleInputChange = e => {
+    setEachEntry({...eachEntry, [e.target.name]: e.target.value})
+  };
+
+  const handleFinalSubmit = e => {
+    console.log(eachEntry)
+  }
 
   return (
     <div>
@@ -18,13 +26,13 @@ export const InputForm = () => {
           <Form>
             <FormGroup>
               <Label for="player">Player</Label>
-              <Input name="player" placeholder="Ex: Player 1"></Input>
+              <Input name="player" placeholder="Ex: Player 1" value={player} onChange={handleInputChange}></Input>
             </FormGroup>
             <FormGroup>
               <Label for="score">Score</Label>
-              <Input name="score" placeholder="Ex: 8888"></Input>
+              <Input name="score" placeholder="Ex: 8888" value={score} onChange={handleInputChange}></Input>
             </FormGroup>
-            <Button>Submit</Button>
+            <Button onClick={handleFinalSubmit}>Submit</Button>
           </Form>
         </Col>
       </Row>
